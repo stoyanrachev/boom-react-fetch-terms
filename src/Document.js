@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 const styleContent = {
     width: "50vw",
     height: "30vh",
