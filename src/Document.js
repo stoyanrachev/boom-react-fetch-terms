@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const styleContent = {
     width: "50vw",
     height: "30vh",
@@ -14,7 +14,7 @@ export default function Document(props) {
     const trackScrolling = (element) => {
         if (isBottom(element)) {
             setDisabled(false)
-        }else{
+        } else {
             setDisabled(true)
         }
     };
@@ -22,7 +22,7 @@ export default function Document(props) {
     return (
         <section>
             <h1 className="title">{props.title}</h1>
-            <p style={styleContent} onScroll={trackScrolling}>{props.content}</p>
+            <p className="content" style={styleContent} onScroll={trackScrolling}>{props.content}</p>
             <button disabled={disabled}>I Agree</button>
         </section>
     )
