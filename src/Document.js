@@ -1,0 +1,32 @@
+import { useState } from "react";
+const styleTitle = {
+    fontSize: "2rem",
+}
+const styleContent = {
+    width: "50vw",
+    height: "30vh",
+    overflowY: "scroll",
+}
+
+function isBottom(element) {
+    return element.target.offsetHeight + element.target.scrollTop === element.target.scrollHeight
+}
+
+export default function Document(props) {
+    const [disabled, setDisabled] = useState(true)
+    const trackScrolling = (element) => {
+        if (isBottom(element)) {
+            setDisabled(false)
+        }else{
+            setDisabled(true)
+        }
+    };
+
+    return (
+        <section>
+            <h1 style={styleTitle}>{props.title}</h1>
+            <p style={styleContent} onScroll={trackScrolling}>{props.content}</p>
+            <button disabled={disabled}>I Agree</button>
+        </section>
+    )
+}
