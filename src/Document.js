@@ -18,7 +18,9 @@ export default function Document(props) {
             setDisabled(true)
         }
     };
-
+    useEffect(() => {
+        setDisabled(true)
+    }, []);
     return (
         <section>
             <h1 className="title">{props.title}</h1>
