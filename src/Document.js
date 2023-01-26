@@ -1,7 +1,4 @@
 import { useState } from "react";
-const styleTitle = {
-    fontSize: "2rem",
-}
 const styleContent = {
     width: "50vw",
     height: "30vh",
@@ -24,7 +21,7 @@ export default function Document(props) {
 
     return (
         <section>
-            <h1 style={styleTitle}>{props.title}</h1>
+            <h1 className="title">{props.title}</h1>
             <p style={styleContent} onScroll={trackScrolling}>{props.content}</p>
             <button disabled={disabled}>I Agree</button>
         </section>
