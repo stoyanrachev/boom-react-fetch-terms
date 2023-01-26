@@ -10,22 +10,18 @@ function isBottom(element) {
 }
 
 export default function Document(props) {
-    const [disabled, setDisabled] = useState(true)
+    
     const trackScrolling = (element) => {
         if (isBottom(element)) {
-            setDisabled(false)
-        } else {
-            setDisabled(true)
-        }
+            document.getElementById("button").disabled = false;
+        } 
     };
-    useEffect(() => {
-        setDisabled(true)
-    }, []);
+
     return (
         <section>
             <h1 className="title">{props.title}</h1>
             <p className="content" style={styleContent} onScroll={trackScrolling}>{props.content}</p>
-            <button disabled={disabled}>I Agree</button>
+            <button id="button" disabled>I Agree</button>
         </section>
     )
 }
